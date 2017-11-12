@@ -154,6 +154,7 @@ public class StudentTest {
     }
     //endregion
 
+    //region Properties tests region
     @Test
     public void setName() throws NoSuchFieldException, IllegalAccessException {
         final Student student = new Student();
@@ -319,7 +320,44 @@ public class StudentTest {
     }
 
     @Test
-    public void checkStudentToString() {
+    public void setBirthDate() throws NoSuchFieldException, IllegalAccessException {
+        final Student student = new Student();
+        BirthDate birthDate = new BirthDate(8, 4, 1996);
+        student.setDateOfBirth(birthDate);
+        final Field field = student.getClass().getDeclaredField("dateOfBirth");
+        field.setAccessible(true);
+        assertEquals(field.get(student), birthDate);
+    }
+
+    @Test
+    public void getBirthDate() throws NoSuchFieldException, IllegalAccessException {
+        final Student student = new Student();
+        final Field field = student.getClass().getDeclaredField("dateOfBirth");
+        field.setAccessible(true);
+        BirthDate birthDate = new BirthDate(8, 4, 1996);
+        field.set(student, birthDate);
+        assertEquals(student.getDateOfBirth(), birthDate);
+    }
+    //endregion
+
+    //region ToString method cases tests region
+    @Test
+    public void checkStudentWithScholarhipToString() {
+        Student student = new Student("Keone Madrid", new BirthDate(3, 4, 1996),
+                "gsdj@dhfkj.com", "306434309343", "American",
+                3, 3.8, true);
+        student.setScholarship(2500);
+        student.addSubjects(new String[]{"Biology", "Literature", "Chemistry", "Journalism"});
+        String result = "Student Keone Madrid was born 3-4-1996 and is of American nationality. " +
+                "Keone Madrid is currently on the 3 course and has 3.8 GPA. \n" +
+                "Student has scholarship of 2500. This student is studying next subjects: " +
+                "Biology, Literature, Chemistry, Journalism. \n" +
+                "Student can be contacted via phone - 306434309343 or email - gsdj@dhfkj.com.";
+        assertEquals(result, student.toString());
+    }
+
+    @Test
+    public void checkStudentWithoutScholarhipToString() {
         Student student = new Student("Keone Madrid", new BirthDate(3, 4, 1996),
                 "gsdj@dhfkj.com", "306434309343", "American",
                 3, 3.8, false);
@@ -331,6 +369,7 @@ public class StudentTest {
                 "Student can be contacted via phone - 306434309343 or email - gsdj@dhfkj.com.";
         assertEquals(result, student.toString());
     }
+    //endregion
 
 
 

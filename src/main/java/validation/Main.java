@@ -1,9 +1,25 @@
 package validation;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        Metrics.start();
+        ArrayList<Student> students = createStudents();
+        if(validateStudents(students)){
+            for (Student student : students)
+                System.out.println(student.toString() + "\n");
+        }
+        Metrics.stop();
+        Metrics.getAllMetrics();
+    }
+
+    private static ArrayList<Student> createStudents() {
         ArrayList<Student> students = new ArrayList<>();
         Student student1 = new Student("Keone Madrid", new BirthDate(3, 4, 1996),
                 "gsdj@dhfkj.com", "306434309343", "American",
@@ -20,11 +36,23 @@ public class Main {
 
         Student student3 = new Student("Akanen Mioshi", new BirthDate(15, 8, 1994),
                 "gsdj@dhfkj.com", "306434309343", "Japanese",
-                5,3.9, false);
+                5, 3.9, false);
         student3.addSubjects(new String[]{"Design", "Literature", "Writing", "Chinese"});
         students.add(student3);
+        return students;
+    }
 
-        for (Student student : students)
-            System.out.println(student.toString() + "\n");
+    public static boolean validateStudents(ArrayList<Student> students) {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        boolean isValid = true;
+        for (Student student : students) {
+            Set<ConstraintViolation<Student>> constraintViolations = validator.validate(student);
+            if (constraintViolations.size() >= 1) {
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
     }
 }
