@@ -25,23 +25,23 @@ public class Student {
     private String nationality;
     @Valid
     private BirthDate dateOfBirth;
-    @NotNull
     @Min(1)
     @Max(6)
     private int course;
-    @NotNull
-    @Positive
     @DecimalMax("4.0")
     @DecimalMin("0")
-    private BigDecimal GPA;
+    private double GPA;
     @NotNull
     private ArrayList<String> classes;
     private boolean isOnScholarship = false;
     @Min(0)
     private int scholarship = 0;
 
+    public Student() {
+    }
+
     public Student(String name, BirthDate birthDate, String email, String phone, String nationality,
-                   int course, BigDecimal GPA, boolean isOnScholarship) {
+                   int course, double GPA, boolean isOnScholarship) {
         this.name = name;
         this.dateOfBirth = birthDate;
         this.email = email;
@@ -58,7 +58,7 @@ public class Student {
         StringBuilder studentInfo = new StringBuilder();
         studentInfo.append("Student ").append(name).append(" was born ").append(dateOfBirth.toString()).
                 append(" and is of ").append(nationality).append(" nationality. ").append(name).
-                append(" is currently on the ").append(course).append(" course and has ").append(GPA.floatValue()).
+                append(" is currently on the ").append(course).append(" course and has ").append(GPA).
                 append(" GPA. \nStudent has ");
         if (isOnScholarship)
             studentInfo.append("scholarship of ").append(scholarship).append(". ");
