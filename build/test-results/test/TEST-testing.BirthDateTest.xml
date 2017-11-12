@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testing.BirthDateTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2017-11-12T22:38:02" hostname="Anvym6" time="3.91">
+  <properties/>
+  <testcase name="monthIsLowerThanAllowed" classname="testing.BirthDateTest" time="3.409"/>
+  <testcase name="getDay" classname="testing.BirthDateTest" time="0.04"/>
+  <testcase name="dayIsLowerThanAllowed" classname="testing.BirthDateTest" time="0.086"/>
+  <testcase name="yearIsLowerThanAllowed" classname="testing.BirthDateTest" time="0.073"/>
+  <testcase name="dayIsGreaterThanAllowed" classname="testing.BirthDateTest" time="0.058"/>
+  <testcase name="setDay" classname="testing.BirthDateTest" time="0.021"/>
+  <testcase name="yearIsGreaterThanAllowed" classname="testing.BirthDateTest" time="0.048"/>
+  <testcase name="getYear" classname="testing.BirthDateTest" time="0.021"/>
+  <testcase name="checkBirthDateToString" classname="testing.BirthDateTest" time="0.017"/>
+  <testcase name="setMonth" classname="testing.BirthDateTest" time="0.02"/>
+  <testcase name="monthIsGreaterThanAllowed" classname="testing.BirthDateTest" time="0.075"/>
+  <testcase name="getMonth" classname="testing.BirthDateTest" time="0.023"/>
+  <testcase name="setYear" classname="testing.BirthDateTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[ноя 13, 2017 12:38:02 AM org.hibernate.validator.internal.util.Version <clinit>
+INFO: HV000001: Hibernate Validator 6.0.4.Final
+]]></system-err>
+</testsuite>
