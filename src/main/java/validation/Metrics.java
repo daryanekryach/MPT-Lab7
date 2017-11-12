@@ -10,15 +10,17 @@ public class Metrics {
     /**
      * Method that starts timer.
      */
-    public static void start() {
+    public static boolean start() {
         startTime = System.currentTimeMillis();
+        return true;
     }
 
     /**
      * Method that stops timer.
      */
-    public static void stop() {
+    public static boolean stop() {
         stopTime = System.currentTimeMillis();
+        return true;
     }
 
     /**
@@ -40,6 +42,7 @@ public class Metrics {
 
     /**
      * Method that converts bytes into megabytes.
+     *
      * @param bytes -  bytes to convert.
      * @return
      */
@@ -50,7 +53,7 @@ public class Metrics {
     /**
      * Method that gathers all metrics.
      */
-    public static boolean getAllMetrics(){
+    public static boolean getAllMetrics() {
         getExecutionTime();
         getUsedMemory();
         return true;

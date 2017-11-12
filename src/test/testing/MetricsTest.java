@@ -9,4 +9,14 @@ public class MetricsTest {
     public void gatherMetricsTest(){
         assertTrue(Metrics.getAllMetrics());
     }
+
+    @Test
+    public void startTest(){
+        assertTrue(Metrics.start());
+    }
+
+    @Test
+    public void stopTest(){
+        assertTrue(Metrics.stop());
+    }
 }

@@ -11,12 +11,19 @@ public class Main {
     public static void main(String[] args) {
         Metrics.start();
         ArrayList<Student> students = createStudents();
-        if(validateStudents(students)){
+        if (validateStudents(students))
+            printStudentsInfo(students);
+        else System.out.println("sorry, one there seems to be a problem with validating one of students' info");
+        Metrics.stop();
+        Metrics.getAllMetrics();
+    }
+
+    public static boolean printStudentsInfo(ArrayList<Student> students) {
+        if (validateStudents(students)) {
             for (Student student : students)
                 System.out.println(student.toString() + "\n");
         }
-        Metrics.stop();
-        Metrics.getAllMetrics();
+        return true;
     }
 
     public static ArrayList<Student> createStudents() {
