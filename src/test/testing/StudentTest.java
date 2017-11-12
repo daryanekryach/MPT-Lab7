@@ -8,7 +8,6 @@ import validation.*;
 
 import javax.validation.*;
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -232,7 +231,7 @@ public class StudentTest {
         field.setAccessible(true);
         String nationality = "American";
         field.set(student, nationality);
-        assertEquals(student.getName(), nationality);
+        assertEquals(student.getNationality(), nationality);
     }
 
     @Test
@@ -272,7 +271,7 @@ public class StudentTest {
         field.setAccessible(true);
         double GPA = 4.0;
         field.set(student, GPA);
-        assertEquals(student.getGPA(), GPA);
+        assertEquals(student.getGPA(), GPA,0);
     }
 
     @Test

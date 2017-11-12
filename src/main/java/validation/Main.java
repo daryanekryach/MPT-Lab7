@@ -1,6 +1,5 @@
 package validation;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Main {

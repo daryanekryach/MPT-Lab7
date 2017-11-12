@@ -1,6 +1,5 @@
 package validation;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import lombok.Getter;
@@ -29,7 +28,7 @@ public class Student {
     @Max(6)
     private int course;
     @DecimalMax("4.0")
-    @DecimalMin("0")
+    @DecimalMin("1.0")
     private double GPA;
     @NotNull
     private ArrayList<String> classes;
