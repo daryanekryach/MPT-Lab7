@@ -7,6 +7,11 @@ public class Metrics {
     private static long startTime;
     private static long stopTime;
 
+    private Metrics() throws InstantiationException
+    {
+        throw new InstantiationException("Instances of this type are forbidden.");
+    }
+
     /**
      * Method that starts timer.
      */

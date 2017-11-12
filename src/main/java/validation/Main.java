@@ -62,4 +62,9 @@ public class Main {
         }
         return isValid;
     }
+
+    private Main() throws InstantiationException
+    {
+        throw new InstantiationException("Instances of this type are forbidden.");
+    }
 }

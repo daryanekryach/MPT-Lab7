@@ -6,10 +6,28 @@ import static org.junit.Assert.*;
 
 import validation.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainTest {
+
+    @Test
+    public void exceptionThrowForInstanceTest() throws IllegalAccessException, InstantiationException {
+        final Class<?> mainClass = Main.class;
+        final Constructor<?> c = mainClass.getDeclaredConstructors()[0];
+        c.setAccessible(true);
+
+        Throwable targetException = null;
+        try {
+            c.newInstance((Object[])null);
+        } catch (InvocationTargetException ite) {
+            targetException = ite.getTargetException();
+        }
+        assertNotNull(targetException);
+        assertEquals(targetException.getClass(), InstantiationException.class);
+    }
+
     @Test
     public void validateStudentTrueTest() {
         ArrayList<Student> students = new ArrayList<>();
