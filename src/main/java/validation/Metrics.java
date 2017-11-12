@@ -50,9 +50,10 @@ public class Metrics {
     /**
      * Method that gathers all metrics.
      */
-    public static void getAllMetrics(){
+    public static boolean getAllMetrics(){
         getExecutionTime();
         getUsedMemory();
+        return true;
     }
 }
 

@@ -19,7 +19,7 @@ public class Main {
         Metrics.getAllMetrics();
     }
 
-    private static ArrayList<Student> createStudents() {
+    public static ArrayList<Student> createStudents() {
         ArrayList<Student> students = new ArrayList<>();
         Student student1 = new Student("Keone Madrid", new BirthDate(3, 4, 1996),
                 "gsdj@dhfkj.com", "306434309343", "American",
